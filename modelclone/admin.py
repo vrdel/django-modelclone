@@ -12,7 +12,10 @@ from django.utils.translation import ugettext_lazy as lazy
 from django.utils.html import escape
 from django.forms.models import model_to_dict
 from django.forms.formsets import all_valid
-from django.core.urlresolvers import reverse
+try:
+    from django.core.urlresolvers import reverse
+except ImportError:
+    from django.urls import reverse
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
 from django.db.models.fields.files import FieldFile
